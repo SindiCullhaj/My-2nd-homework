@@ -1,0 +1,344 @@
+#Solve me first
+    def solveMeFirst(a,b):
+	# Hint: Type return a+b below
+    return a+b
+
+num1 = int(input())
+num2 = int(input())
+res = solveMeFirst(num1,num2)
+print(res)
+S
+
+
+
+#A very big sum
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'aVeryBigSum' function below.
+#
+# The function is expected to return a LONG_INTEGER.
+# The function accepts LONG_INTEGER_ARRAY ar as parameter.
+#
+
+def aVeryBigSum(ar):
+    # Write your code here
+    sum = 0
+    for i in range(ar_count):
+        sum = sum + int(ar[i])
+    return sum
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    ar_count = int(input().strip())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = aVeryBigSum(ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    #Birthday cake candles
+    import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'birthdayCakeCandles' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY candles as parameter.
+#
+
+def birthdayCakeCandles(candles):
+    # Write your code here
+    candles.sort()
+
+    result = candles.count(candles[len(candles)-1])
+    return result
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    candles_count = int(input().strip())
+
+    candles = list(map(int, input().rstrip().split()))
+
+    result = birthdayCakeCandles(candles)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    
+    #Copmare the triplets
+    import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'compareTriplets' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts following parameters:
+#  1. INTEGER_ARRAY a
+#  2. INTEGER_ARRAY b
+#
+
+def compareTriplets(a, b):
+    # Write your code here
+    alice = 0
+    bob = 0
+    for i in range(3):
+        if a[i] > b[i]:
+            alice += 1
+        elif b[i] > a[i]:
+            bob += 1
+    li =[alice,bob]
+    return li
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    a = list(map(int, input().rstrip().split()))
+
+    b = list(map(int, input().rstrip().split()))
+
+    result = compareTriplets(a, b)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+    
+    
+    
+    #Diagonal difference
+    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'diagonalDifference' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts 2D_INTEGER_ARRAY arr as parameter.
+#
+
+def diagonalDifference(arr):
+    # Write your code here
+    d1 = sum([arr[x][x] for x in range(len(arr))])
+    d2 = sum([arr[x][n - 1 - x] for x in range(len(arr))])
+    return(abs(d1 - d2))
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    result = diagonalDifference(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    
+    #Mini-Max Sum
+    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'miniMaxSum' function below.
+#
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def miniMaxSum(arr):
+    # Write your code here
+    sum=0
+    for i in range(len(arr)):
+        sum+=arr[i]
+    print ( sum-max(arr), sum-min(arr))
+
+
+if __name__ == '__main__':
+
+    arr = list(map(int, input().rstrip().split()))
+
+    miniMaxSum(arr)
+    
+    
+    #Plus Minus
+    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'plusMinus' function below.
+#
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def plusMinus(arr):
+    # Write your code here
+    pos=0
+    neg=0
+    neu=0
+    for i in range(len(arr)):
+        if(arr[i]>0):
+            pos+=1
+        elif(arr[i]==0):
+            neu+=1
+        else:
+            neg+=1
+    print(pos/len(arr))
+    print(neg/len(arr))
+    print(neu/len(arr))
+    
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    plusMinus(arr)
+    
+    
+    
+    
+    #Simple Array Sum
+    #!/bin/python3
+
+import os
+import sys
+
+#
+# Complete the simpleArraySum function below.
+#
+def simpleArraySum(ar):
+    #
+    # Write your code here
+    #
+    sum = 0
+    for element in ar:
+        sum += element
+    return sum
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    ar_count = int(input())
+
+    ar = list(map(int, input().rstrip().split()))
+
+    result = simpleArraySum(ar)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    
+    
+    
+
+
+
+#Staircase
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'staircase' function below.
+#
+# The function accepts INTEGER n as parameter.
+#
+
+def staircase(n):
+    # Write your code here
+     for i in range(1, n + 1):
+       print(' ' * (n - i) + '#' * i)
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    staircase(n)
+    
+    
+    
+    
+    #Time conversion
+    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the timeConversion function below.
+#
+# the function is expected to return a STRING
+# the function accepts STRING s as parameter
+#
+
+def timeConversion(s):
+    if(s[-2:]=="AM"):
+        if (s[:2]=="12"):
+            return "00"+s[2:-2]
+        else:
+            return s[:-2]
+    else:
+        h = int(s[:2])
+        if(h<12):
+            h+=12
+        return str(h)+s[2:-2]
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    
+    s = input()
+    
+    result = timeConversion(s)
+    
+    fptr.write(result + '\n')
+    
+    fptr.close()
+    
