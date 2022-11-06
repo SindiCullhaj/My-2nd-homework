@@ -1,0 +1,245 @@
+#####Caesar Cipher
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'caesarCipher' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts following parameters:
+#  1. STRING s
+#  2. INTEGER k
+#
+
+def caesarCipher(s, k):
+    # Write your code here 
+    encrypted_string = ""
+    
+    k %= 26
+    for alphabet in s:
+        rotated_alphabet = chr(ord(alphabet) + k)
+        if alphabet.islower():
+            if rotated_alphabet > "z":
+                rotated_alphabet = chr(ord(rotated_alphabet) - 26)
+            encrypted_string += rotated_alphabet
+        elif alphabet.isupper():
+            if rotated_alphabet > "Z":
+                rotated_alphabet = chr(ord(rotated_alphabet) - 26) 
+            encrypted_string += rotated_alphabet
+            
+        else:
+            encrypted_string += alphabet
+    return encrypted_string
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    s = input()
+
+    k = int(input().strip())
+
+    result = caesarCipher(s, k)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
+    
+    
+    
+######Funny string
+    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'funnyString' function below.
+#
+# The function is expected to return a STRING.
+# The function accepts STRING s as parameter.
+#
+
+def funnyString(s):
+    # Write your code here 
+    s_rev = s[::-1]
+
+    l1 = [abs(ord(s[i]) - ord(s[i+1])) for i in range(len(s)-1)]
+    l2 = [abs(ord(s_rev[i]) - ord(s_rev[i+1])) for i in range(len(s_rev)-1)]
+    
+    
+    if l1 == l2:
+        return 'Funny'
+    return 'Not Funny'
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input().strip())
+
+    for q_itr in range(q):
+        s = input()
+
+        result = funnyString(s)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
+    
+    
+    
+    
+####à#Camel Case
+    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'camelcase' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING s as parameter.
+#
+
+def camelcase(s):
+    # Write your code here 
+    res = 1
+    for let in s:
+        if let.isupper():
+            res += 1
+
+    if not s:
+        res = 0
+
+    return res
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = camelcase(s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+
+
+
+
+#####Mars exploration
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'marsExploration' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts STRING s as parameter.
+#
+
+def marsExploration(s):
+    # Write your code here 
+    res = 0
+    for ind in range(0, len(s), 3):
+        if s[ind] != 'S':
+            res += 1
+        if s[ind+1] != 'O':
+            res += 1
+        if s[ind+2] != 'S':
+            res += 1
+            
+    return res
+        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    result = marsExploration(s)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    
+    
+    
+######Strong password
+    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'minimumNumber' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. STRING password
+#
+numbers = "0123456789"
+lower_case = "abcdefghijklmnopqrstuvwxyz"
+upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+special_characters = "!@#$%^&*()-+"
+
+def minimumNumber(n, password):
+    # Return the minimum number of characters to make the password strong 
+    res = 0
+
+    if not any(x in numbers for x in password):
+        res += 1
+
+    if not any(x in lower_case for x in password):
+        res += 1
+
+    if not any(x in upper_case for x in password):
+        res += 1
+
+    if not any(x in special_characters for x in password):
+        res += 1
+
+    if len(password) < 6:
+        return max(res, 6 - len(password))
+
+    return res
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    password = input()
+
+    answer = minimumNumber(n, password)
+
+    fptr.write(str(answer) + '\n')
+
+    fptr.close()
