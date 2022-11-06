@@ -1,0 +1,425 @@
+#Big Sorting
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'bigSorting' function below.
+#
+# The function is expected to return a STRING_ARRAY.
+# The function ac
+
+cepts STRING_ARRAY unsorted as parameter.
+#
+
+def bigSorting(unsorted):
+    # Write your code here
+    return sorted(unsorted, key=int)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    unsorted = []
+
+    for _ in range(n):
+        unsorted_item = input()
+        unsorted.append(unsorted_item)
+
+    result = bigSorting(unsorted)
+
+    fptr.write('\n'.join(result))
+    fptr.write('\n')
+
+    fptr.close()
+    
+   
+   #Closest number
+   #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'closestNumbers' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def closestNumbers(arr):
+    # Write your code here  
+    output = []
+    arr = sorted(arr)
+    nowmin = 10**9
+    
+    for ind in range(1, len(arr)):
+        diff = abs(arr[ind-1] - arr[ind])
+        
+        if diff < nowmin:
+            output = [(arr[ind-1], arr[ind])]
+            nowmin = diff
+        elif diff == nowmin:
+            output.append((arr[ind-1], arr[ind]))
+            
+    flat_list = [item for sublist in output for item in sublist]
+        
+    return flat_list
+    
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = closestNumbers(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+    
+    
+    
+    
+    
+    
+    ###Loop invariant
+    def insertion_sort(l):
+    for i in range(1, len(l)):
+        j = i-1
+        key = l[i]
+        while (j >= 0) and (l[j] > key):
+           l[j+1] = l[j]
+           j -= 1
+        l[j+1] = key
+
+m = int(input().strip())
+ar = [int(i) for i in input().strip().split()]
+insertion_sort(ar)
+print(" ".join(map(str,ar)))
+
+
+
+
+
+###Counting sort 1
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'countingSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def countingSort(arr):
+    # Write your code here
+    count = [0] * 100
+    
+    for num in arr:
+        count[num] += 1
+        
+    return count
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = countingSort(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+    
+    
+    
+    
+ ####Counting sort 2
+ #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'countingSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def countingSort(arr):
+    # Write your code here
+    count = [0] * (max(arr)+1)
+    
+    for num in arr:
+        count[num] +=1
+        
+    sortarr = []
+    for i in range(len(count)):
+        while count[i] != 0:
+            count[i] -= 1
+            sortarr.append(i)
+            
+    return sortarr
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = countingSort(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
+    
+    
+    
+    
+    ####Find the median
+    #!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'findMedian' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def findMedian(arr):
+    # Write your code here 
+    arr = sorted(arr)
+    return arr[len(arr)//2]
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = findMedian(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    
+    
+    
+    
+    
+    
+ ###Insertion sort part 1
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'insertionSort1' function below.
+#
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY arr
+#
+
+def insertionSort1(n, arr):
+    # Write your code here
+    probe = arr[-1]
+
+    for ind in range(len(arr)-2, -1, -1):
+        if arr[ind] > probe:
+              arr[ind+1] = arr[ind]
+              print(" ".join(map(str, arr)))
+        else:
+              arr[ind+1] = probe
+              print(" ".join(map(str, arr)))
+              break
+    if arr[0] > probe:
+          arr[0] = probe
+          print(" ".join(map(str, arr)))
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort1(n, arr)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+###Insertion sort part 2
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'insertionSort2' function below.
+#
+# The function accepts following parameters:
+#  1. INTEGER n
+#  2. INTEGER_ARRAY arr
+#
+
+def insertionSort2(n, arr):
+    # Write your code here
+    for j in range(1, n):
+        key = arr[j]
+        i = j
+        while i > 0 and arr[i-1] > key:
+            arr[i] = arr[i-1]
+            i -=1
+        arr[i] = key
+        print(*arr)
+
+if __name__ == '__main__':
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    insertionSort2(n, arr)
+   
+
+
+##Intro to tutorial challenge
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'introTutorial' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts following parameters:
+#  1. INTEGER V
+#  2. INTEGER_ARRAY arr
+#
+
+def introTutorial(V, arr):
+    # Write your code here
+   return arr.index(V)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    V = int(input().strip())
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = introTutorial(V, arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+##Quicksort1
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'quickSort' function below.
+#
+# The function is expected to return an INTEGER_ARRAY.
+# The function accepts INTEGER_ARRAY arr as parameter.
+#
+
+def quickSort(arr):
+    # Write your code here
+    left = []
+    equal = []
+    right = []
+    pivot = arr[0]
+    
+    for el in arr:
+        if el < pivot:
+            left.append(el)
+        elif el == pivot:
+            equal.append(el)
+        elif el > pivot:
+            right.append(el)
+            
+    return left + equal + right
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = list(map(int, input().rstrip().split()))
+
+    result = quickSort(arr)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
